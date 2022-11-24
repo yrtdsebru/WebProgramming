@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<catalog>
+    <person>
+        <no>11111</no>
+        <name>Ebru YURTDAŞ</name>
+        <bolum>Bilgisayar Mühendisliği</bolum>
+        <class>4</class>
+    </person>
+    <person>
+        <no>22222</no>
+        <name>Doğan YURTDAŞ</name>
+        <bolum>Siyaset Bilimi</bolum>
+        <class>4</class>
+    </person>
+    <person>
+        <no>33333</no>
+        <name>Zehra YURTDAŞ</name>
+        <bolum>Edebiyat</bolum>
+        <class>4</class>
+    </person>
+</catalog>

@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <h1>XMLHttpRequest Nesnesi</h1>
+    <p id="demo"><strong>AJAX Nedir?</strong></p>
+    <button type="button" onclick="loadDoc()">Goster</button>
+
+    <script>
+        function loadDoc(){
+            //http request objemi olusturdum
+            var xhttp = new XMLHttpRequest();
+
+            //onreadtstatechange(request'i baslattık) function...(request tetiklendiginde calisacak fonksiyonlar)
+            xhttp.onreadystatechange = function(){
+
+                /* readystate ozellikleri
+                0: request henuz baslatilmamis
+                1:server connection olduysa
+                2: request server tarafindan alindiysa
+                3: request server tarafindan isleniyorsa
+                4: request islemi bittiyse ve respons hazirsa*/
+
+                //status de de 200 istek basarili demek
+                if(this.readyState == 4 && this.status == 200){
+                    document.getElementById("demo").innerHTML = this.responseText;
+                }
+            };
+
+            //metot, nerden gelicek, asenkronsa true degilse false
+            xhttp.open("GET","verigelicek.html", true);
+            xhttp.send();
+        }
+    </script>
+
+
+    <!--
+
+1xx: Informational (Bilgilendirme Yanıtları)
+100 : İsteğin başarılı alındığı ve devam edilebileceği belirtilir.
+
+Kod : 100 Bilgi : Continue
+
+101: Sunucunun hangi protokole geçtiğini belirtir.
+
+Kod : 101 Bilgi : Switching Protocols
+
+102: Bu kod sunucunun isteği aldığını ve işlemekte olduğunu ancak henüz yanıt vermediğini bildirir.
+
+Kod : 102 Bilgi : Processing
+
+2xx: Success(Başarı yanıtları)
+200 : İstek başarılı oldu. HTTP metoduna göre farklı anlamlara gelir:
+
+GET: Kaynak alındı ve mesaj gövdesinde iletildi.
+PUT veya POST: Eylemin sonucunu açıklayan kaynak mesaj gövdesinde iletildi.
+
+Kod : 200 Bilgi : OK
+
+201: İstek başarılı ve sunucuda yeni kaynak yaratılmıştır.
+
+Genellikle POST veya PUT isteklerinden sonra gönderilen yanıt budur.
+
+Kod : 201 Bilgi : Created
+
+202: İstemci sunucuda bir şey oluşturmak istedi. Kabul edildi, ancak tamamlanmadı.
+
+Kod : 202 Bilgi : Accepted
+
+203 : Bilgi iletildi, ancak birincil kaynaktan alınmadı.
+
+Kod : 203 Bilgi : Non-Authoritative Information
+
+204: İstek başarılı alınmış ancak geri içerik döndürülmemektedir.
+
+Kod : 204 Bilgi : No Content
+
+205: İstek başarılı alınmış ancak geri içerik döndürülmemektedir. Ancak içerik temizlenecektir (Örneğin; bir web formunda doldurulan bilgiler).
+
+Kod : 205 Bilgi : Reset Content
+
+206 : GET metodu için içeriğin bir belirli bir parçası başarılıyla döndürülmüştür.
+
+Kod : 206 Bilgi : Partial Content
+
+207: Birden çok durum kodunun uygun olabileceği durumlarda birden çok kaynak hakkında bilgi verir.
+
+Kod : 207 Bilgi : Multi-Status
+
+3xx: Redirection(Yönlendirme Mesajları)
+300 : Sunucuda isteğe göre birden fazla seçenek olduğunu bildirir. Sunucu seçeneği kendisi seçebilir veya seçenek listesini görüntüleyebilir.
+
+Kod : 300 Bilgi : Multiple Choices
+
+301: Bir kaynağın (veya sayfanın) kalıcı olarak başka bir yere taşındığını bildirir ve o yere yönlendirme sağlar.
+
+Kod : 301 Bilgi : Moved Permanently
+
+302: Bir kaynağın (veya sayfanın) kalıcı değil geçici olarak başka bir kaynağa yönlendirir. Kaynağın ana adresi değişmemiştir.
+
+Kod : 302 Bilgi : Moved Temporarily
+
+303 : Sunucu, farklı bir kaynağa GET yapılması gerektiğini belirtir.
+
+Kod : 303 Bilgi : See Other
+
+304: İstenilen kaynakta daha önce yapılan istekten beri herhangi bir değişikliğin olmadığı belirtilir ve içerik gönderilmez.
+
+Kod : 304 Bilgi : Not Modified
+
+305: Sunucu tarafından döndürülen proxy’nin kullanılması gerektiği belirtilir.
+
+Kod : 305 Bilgi : Use Proxy
+
+306 : Bu kod artık kullanılmıyor.
+
+Kod : - Bilgi : -
+
+307: Bir kaynağı geçici olarak başka bir kaynağa yönlendirir.
+
+Kod : 307 Bilgi : Temporary Redirect
+
+4xx: Client Error(İstemci Hatası Yanıtları)
+400 : İsteğin yapısının hatalı olduğu belirtilir.
+
+Kod : 400 Bilgi : Bad Request
+
+401: İstek için kimlik doğrulaması gerekiyor.
+
+Kod : 401 Bilgi : Unauthorized
+
+402: Bu kod ileride kullanılmak üzere ayrılmıştır.
+
+Kod : 402 Bilgi : Payment Required
+
+403 : İstemcinin içeriğe erişim hakları yoktur, yani yetkisizdir, bu nedenle sunucu düzgün yanıt vermeyi reddetmektedir. 401'den farklı olarak, istemcinin kimliği sunucu tarafından bilinir.
+
+Kod : 403 Bilgi : Forbidden
+
+404: İstek yapılan kaynağın bulunamadığını belirtir.
+
+Kod : 404 Bilgi : Not Found
+
+405: Sunucu , HTTP Method’u kabul etmiyor.
+
+Kod : 405 Bilgi : Method Not Allowed
+
+408 : İstek zaman aşımına uğradı (belirli bir sürede istek tamamlanamadı).
+
+Kod : 408 Bilgi : Request Timeout
+
+409: İstek içinde çelişki var.
+
+Kod : 409 Bilgi : Conflict
+
+5xx: Server Error(Sunucu Hatası Yanıtları)
+500 :Sunucuda bir hata oluştu ve istek karşılanamadı.
+
+Kod : 500 Bilgi : Internal Server Error
+
+501: Sunucu istenilen isteği yerine getirecek şekilde yapılandırılmamıştır.
+
+Kod : 501 Bilgi : Not Implemented
+
+502: Gateway veya Proxy sunucusu, kaynağın bulunduğu sunucudan cevap alamıyor.
+
+Kod : 502 Bilgi : Bad Gateway
+
+503 :Sunucu şu anda hizmet vermiyor (kapalı veya erişilemiyor).
+
+Kod : 503 Bilgi : Service Unavaible
+
+504: Gateway veya Proxy sunucusu, kaynağın bulunduğu sunucudan belirli bir zaman içinde cevap alamadı.
+
+Kod : 504 Bilgi : Gateway Timeout
+
+505: İstekte kullanılan HTTP sürümü sunucu tarafından desteklenmiyor.
+
+Kod : 505 Bilgi : HTTP Version Not Supported
+
+508 : Sunucu, istek işlenirken sonsuz bir döngü algıladı.
+
+Kod : 508 Bilgi : Loop Detected
+
+511: İstemcinin ağ erişimi kazanmak için kimlik doğrulaması yapması gerektiğini belirtir.
+
+Kod : 511 Bilgi : Network Authentication Required
+    -->
+</body>
+</html>

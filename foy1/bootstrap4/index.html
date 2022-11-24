@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="utf-8">
+    <title>Anasayfa</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,600&display=swap" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="lib/slick/slick.css" rel="stylesheet">
+    <link href="lib/slick/slick-theme.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">    <!-- Tasarım amacli kullandigimiz kodlarimiz "style.css" dosyasinda idi. Bu kod ile onu refere ediyoruz. Aynı dizinde iki dosya.-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <!-- Nav Bar -->
+    <div class="nav-bar">
+        <div class="container">
+            <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+                <a href="#" class="navbar-brand">MENÜ</a>
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                    <div class="navbar-nav mr-auto">
+                        <a href="index.html" class="nav-item nav-link active"><span
+                                class="badge badge-pill badge-warning">Anasayfa</span></a>
+                        <a href="#" class="nav-item nav-link">Ekibimiz</a>
+                        <div class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Hakkımızda</a>
+                            <div class="dropdown-menu">
+                                <a href="#" class="dropdown-item">Yönetim</a>
+                                <a href="#" class="dropdown-item">Bilişim</a>
+                                <a href="#" class="dropdown-item">İnsan Kaynakları</a>
+                                <a href="#" class="dropdown-item">İdare</a>
+                            </div>
+                        </div>
+                        <a href="#" class="nav-item nav-link">İletişim</a>
+                        <div class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Hesap</a>
+                            <div href="#" class="dropdown-menu">
+                                <a href="#" class="dropdown-item">Giriş Yap</a>
+                                <a href="#" class="dropdown-item">Kayıt Ol</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 col-md-4">
+                        <div class="b-search" style="margin-top: 6px; width: 100%;">
+                            <input type="text" placeholder="Ara">
+                            <button><i class="fa fa-search"></i></button>
+                        </div>
+                    </div>
+                    <div class="social ml-auto">
+                        <a href=""><i class="fab fa-twitter"></i></a>
+                        <a href=""><i class="fab fa-facebook-f"></i></a>
+                        <a href=""><i class="fab fa-linkedin-in"></i></a>
+                        <a href=""><i class="fab fa-instagram"></i></a>
+                        <a href=""><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+    <!-- Nav Bar End -->
+
+    <!-- CAROUSEL -->
+    <div class="container">
+        <div id="myCarousel" class="carousel slide" data-ride="carousel">
+            <!-- Indicators -->
+            <ol class="carousel-indicators">
+                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                <li data-target="#myCarousel" data-slide-to="1"></li>
+                <li data-target="#myCarousel" data-slide-to="2"></li>
+            </ol>
+
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner">
+                <div class="item active">
+                    <img src="img/a450.jpg" alt="Los Angeles" style="width:100%; ">
+                    <div class="carousel-caption">
+                        <h3>ATIKLAR KUŞLARA YUVA OLDU</h3>
+                        <p>Daha yaşanılabilir bir hayat için !</p>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <img src="img/b450.jpg" alt="Chicago" style="width:100%;">
+                    <div class="carousel-caption">
+                        <h3>ATÖLYE ZİYARETLERİ</h3>
+                        <p>21 Ekim'den itibaren atölyemiz ziyaretlere açılmış bulunmaktadır.</p>
+                    </div>
+                </div>
+
+                <div class="item">
+                    <img src="img/d450.jpg" alt="New york" style="width:100%;">
+                    <div class="carousel-caption">
+                        <h3>GENÇLERİN BİLİMLE BULUŞMA NOKTASI</h3>
+                        <p>Gençleri bilimle buluşturmak adına açılan yeni merkezimize göz atın.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Left and right controls -->
+            <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="right carousel-control" href="#myCarousel" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+    </div>
+    <!-- Carousel end-->
+    <br><br><br><br><br><br>
+    <!--bilgi-->
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2">
+                <h1>Ekibe Katılmak İçin<a href="#"> Formu Doldur</h1>
+                <p class="lead">Kendinizden kısaca bahsederseniz süreç hızlanabilir!</p>
+            </div>
+        </div>
+    </div>
+    <!--end-->
+
+    <!-- Form-->
+    <br><br><br><br>
+    <div class="container">
+        <form id="contact-form" method="post" action="contact.php" role="form">
+            <div class="messages"></div>
+            <div class="controls">
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="form_name">Adınız *</label>
+                            <input id="form_name" type="text" name="Adi" class="form-control"
+                                placeholder="Lütfen adınızı yazın *" required="required" data-error="Adınız gerekli.">
+                            <div class="help-block with-errors"></div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="form_lastname">Soyadınız *</label>
+                            <input id="form_lastname" type="text" name="Soyadi" class="form-control"
+                                placeholder="Lütfen soyadınızı yazın *" required="required"
+                                data-error="Soyadınız gerekli.">
+                            <div class="help-block with-errors"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="form_email">E-Posta Adresiniz *</label>
+                            <input id="form_email" type="email" name="EPosta" class="form-control"
+                                placeholder="Lütfen E-Posta adresinizi yazın *" required="required"
+                                data-error="Geçerli bir E-Posta gerekli.">
+                            <div class="help-block with-errors"></div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="form_phone">Telefon Numaranız</label>
+                            <input id="form_phone" type="tel" name="Telefon" class="form-control"
+                                placeholder="Lütfen telefon numaranızı yazın">
+                            <div class="help-block with-errors"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="form_message">Mesajınız *</label>
+                            <textarea id="form_message" name="Mesaj" class="form-control"
+                                placeholder="Lütfen mesajınızı yazın *" rows="4" required="required"
+                                data-error="Lütfen mesajınızı yazın."></textarea>
+                            <div class="help-block with-errors"></div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <p class="text-muted"><strong>*</strong> Bu alanlar gereklidir.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <input type="submit" class="btn btn-warning btn-send" value="Gönder">
+                    </div>
+                </div>
+
+            </div>
+        </form>
+    </div>
+    <!--Form end-->
+    <br><br><br><br>
+
+    <!-- Alt Bar Start -->
+
+    <marquee behavior="alternate" bgColor="orange" style="color: #ffffff ;">Ekibimize yeni üyeler arıyoruz !</marquee>
+    <div class="top-bar">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-2">
+                    <div class="tb-contact">
+                        <p><i class="fas fa-envelope"></i>info@gmail.com</p>
+                    </div>
+                </div>
+                <div class="col-md-10">
+                    <div class="tb-menu">
+                        <a href="#">Ekibimiz</a>
+                        <a href="#">Hakkımızda</a>
+                        <a href="#">Kadro</a>
+                        <a href="#">İletişim</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Top Bar Start -->
+
+    <!-- Back to Top -->
+    <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/slick/slick.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+
+    <script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="validator.js"></script>
+    <script src="contact.js"></script>
+</body>
+
+</html>

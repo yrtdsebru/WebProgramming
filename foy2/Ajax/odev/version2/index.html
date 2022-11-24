@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="Content-Type" content="text/html; charset=windows-1254" /> <!--Turkce karakter duyarliligi icin -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajax 2</title>
+    <!--Simdi style etiketleri arasında direkt arayüz tasarim kodlarimizi yazabiliriz. Ayni "style.css" dosyayi yazip burada refere ettigimiz gibi.-->
+    <style>
+        table tr th, td {
+            border: 2px solid;
+            border-radius: 3%;
+            width: 150px;
+            height: 30px;
+        }
+
+        table tr td {
+            background-color: rgb(237, 203, 124);
+        }
+
+        td:hover {
+            background-color: rgb(175, 161, 76);
+            font-weight: bolder;
+        }
+    </style>
+    <!-- td:hover ile imlecimiz(faremiz) td etiketi olanlara geldiginde olsun istedigimiz kodlari yazdik.  -->
+</head>
+<body>
+    <h1 style="color:darkred;">Öğrenciye Tıklandığında Bilgilerin Ekrana Getirilmesi</h1>
+
+    <p id="info" style="color: darkred; font-size: 3ch;"></p>
+
+    <table style="background-color:blanchedalmond; border: 2px solid; border-radius: 3%;">
+        <tr style="background-color: rgb(242, 180, 35) ;">
+            <th>
+                Numara
+            </th>
+            <th>
+                Ad-Soyad
+            </th>
+        </tr>
+        <tr>
+            <!--Hucrelere onclick ozelligi verdim. Tiklandiginda parametre ile beraber getir fonksiyonunu calistiriyorlar.
+                Dinamik bir surece giriyoruz ve bunu html ya da css ile yapamayiz. Javascript dilini kullanacagiz ve bunu script etiketleri arasinda yazarak belirtebiliriz.-->
+            <td onclick="getir('0')">11111</td>
+            <td onclick="getir('0')">Ebru YURTDAŞ</td>
+        </tr>
+        <tr>
+            <td onclick="getir('1')">22222</td>
+            <td onclick="getir('1')">Doğan YURTDAŞ</td>
+        </tr>
+        <tr>
+            <td onclick="getir('2')">33333</td>
+            <td onclick="getir('2')">Zehra YURTDAŞ</td>
+        </tr>
+    </table>
+
+    <!--javascript kodlarini en sona yazmak daha faydali. Performans acisindan yavaslamasin diye.-->
+    <script>
+        var x;
+        function getir(i) {
+            //Yeni bir XMLHttpRequest nesnesi olusturduk. Bununla herhangi bir server'a http istegi gonderebiliriz.
+            var xmlhttp = new XMLHttpRequest();
+            //Bu nesnede durum degisikligi meydana gelirse function'u calistiriyoruz.
+            xmlhttp.onreadystatechange = function () {
+                //Eger readyState==4(istek gonderildiyse ve yanit hazirsa) ve http status(basarili) ise  
+                if (this.readyState == 4 && this.status == 200) {
+                    //bu fonksiyona gidiyoruz, istek ve index parametreleri ile
+                    myFunction(this, i); 
+                }
+            };
+            //get metodu ile persons dosyasını asenkron sekilde(true deme sebebimiz) aciyoruz. 
+            xmlhttp.open("GET", "persons.xml", true);  
+            //gonder
+            xmlhttp.send();
+        }
+
+        function myFunction(xml, i) {
+            var xmlDoc = xml.responseXML;   //xml formatinda bir yanit getirmek icin
+            x = xmlDoc.getElementsByTagName("person");   //Bu yanitta etiketi person olanlari sectik
+            document.getElementById("info").innerHTML = //Su an bulundugumuz kod dokumaninda id’si info olani innerHTML ile icerigini degistirecegiz.
+                "Numara:" + x[i].getElementsByTagName("no")[0].childNodes[0].nodeValue +
+                "<br>Ad-Soyad: " + x[i].getElementsByTagName("name")[0].childNodes[0].nodeValue +
+                "<br>Bölümü: " + x[i].getElementsByTagName("bolum")[0].childNodes[0].nodeValue +
+                "<br>Sınıfı: " + x[i].getElementsByTagName("class")[0].childNodes[0].nodeValue;
+        }
+    </script>
+</body>
+</html>
+
+<!--readyState durumu için kodlar şu şekilde:
+                0: request henuz baslatilmamis
+                1:server connection olduysa
+                2: request server tarafindan alindiysa
+                3: request server tarafindan isleniyorsa
+                4: request islemi bittiyse ve response hazirsa
+-->
+<!--Http Status kodların da bazıları şu şekilde özetlenebilir:
+                200 Durum Kodu (Başarılı)
+                301 Durum Kodu (Kalıcı Yönlendirme)
+                302 Durum Kodu (Geçici Yönlendirme)
+                403 Durum Kodu (Erişim İzni Sorunu)
+                404 Durum Kodu (Bulunamadı)
+-->

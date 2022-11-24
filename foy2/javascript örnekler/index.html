@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Events</title>
+</head>
+<body>
+    
+    <p id="param1" onclick="renkDegis()"> Paragraf </p>
+    <button onclick="tikla()">Tıkla</button>
+    <br><br>
+    <!--bu butonun içeriğini değiştireceğiz. this(bu buton) .innerHTML içeriği değiştireceğiz-->
+    <button onclick="this.innerHTML = 'Butona tıklandı'">Tıkla</button>
+    <br><br>
+    <!--2.butonun aynısı ama daha düzenli-->
+    <button onclick="tikla2(this)">Tıkla</button>
+    <br><br>
+    <!-- onmousover, butonun üzerine gelince tetiklenecek. onmousout butonun üzerinden gidince-->
+    <button onmouseover="mouseover(this)" onmouseout="mouseout(this)">Tıkla</button>
+    <br><br>
+
+
+
+
+    <!--form validation
+    onsubmit eventi return true olursa button type="submit" sayesinde action="gonder.php" sayfasına gonderilecek
+    onsubmit eventi return false olursa göndermez bos olur.
+    action nereye gidecegi
+    method nası gidecegi-->
+    <form name="form1" action="gonder.php" method="POST" onsubmit="return dogrulama()">
+        <input type="text" name="isim"/>
+        <button type="submit">Gonder</button>
+    </form>
+
+
+
+
+    <script>    
+    //var degiskenler icin default bir veri tipi diyelim, js oop değiğl obejct yönelimli bir programlama dili.
+    //html ve css programlama dili değil ancak js programlama dili.
+    //js web sayfasını dynamik yapmamıza yarar
+        
+        //paragrafa tiklandiginda rengi degisecek
+        function renkDegis(){
+            //document(bu kod dokumanindaki) getElemenByID(id'si param1 olanlari) element degiskenine atadik
+            var element = document.getElementById("param1");
+            element.style.color = "red";
+        }
+
+        // ilk butonun
+        function tikla(){
+            //kutu biçiminde mesaj veriyo.
+            alert("Butona Tıklandı...");
+        }
+
+        //ucuncu butonun
+        function tikla2(element){
+            element.innerHTML = "Butona Tıklandı...";
+        }
+
+        //dorduncu butonun
+        function mouseover(element){
+            element.innerHTML = "Mouse Over effecti";
+        }
+
+        //dorduncu butonun
+        function mouseout(element){
+            element.innerHTML = "Mouse Out effecti";           
+        }
+        
+
+        //form dogrulama kismi
+        function dogrulama(){
+            //forms(formlar arasında) name'i form1 olanı al. form degiskenine ata
+            var form = document.forms["form1"];
+            //formun icindeki input alanında bulunan degeri almak icin isim.value. inputun name'i de isim idi.
+            var deger = form["isim"].value;
+
+            //eger degerimiz bossa, return false olur ve submitlenme islemi olmaz
+            if(deger == ""){
+                alert("isim alanı bos birakilamaz...");
+                return false;
+            }
+            return true;  //eger bos degilse calisir. ama gonder.php yok ya hata gelcek
+        }
+    </script>
+</body>
+</html>

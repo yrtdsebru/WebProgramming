@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Type" content="text/Html; charset=windows-1254" />  <!-- Turkce karakterleri kullanabilmek icin-->
+    <title>Dikey Açılır Menü</title> <!--pencere basligi-->
+    <link rel="stylesheet" href="styles.css"> <!-- Arayuz tasarim kodlarının referansı-->
+</head>
+<body>
+    <div class="container">
+        <nav>
+            <ul class="menu"> <!--sırasız liste olusturduk-->
+              <li> <!-- listeye eleman ekledik 1 tane-->
+                <a href="http://www.omu.edu.tr/tr" target="_blank"> <!--ekledigimiz elemana da bir link ekledik.-->
+                  <strong>Anasayfa</strong>
+                </a>
+              </li>
+              <li>  <!-- listeye eleman ekledik 1 tane daha. Bu elemanın alt kategorileri var. Yeni bir liste olusturup alt eleman ekleyecegiz.-->
+                <a href="http://www.omu.edu.tr/tr/universitemiz/hakkimizda" target="_blank">
+                  <strong>Hakkımızda</strong>
+                </a>
+                <ul> <!-- Alt liste-->
+                  <li><a href="http://www.omu.edu.tr/tr/universitemiz" target="_blank">Bölümümüz</a></li> <!-- Alt eleman-->
+                  <li><a href="https://www.omu.edu.tr/tr/universitemiz/yonetim" target="_blank">Yönetim</a></li> <!-- Alt eleman-->
+                  <li><a href="https://www.omu.edu.tr/tr/universitemiz/kurul-ve-komisyonlar" target="_blank">Komisyonlar</a></li> <!-- Alt eleman-->
+                </ul>
+              </li>
+              <li>
+                <a href="https://pdb.omu.edu.tr/" target="_blank">
+                  <strong>Personel</strong>
+                </a>
+                <ul>
+                  <li><a href="https://www.omu.edu.tr/tr/akademik" target="_blank">Öğretim Üyeleri</a></li>
+                  <li><a href="https://www.omu.edu.tr/tr/akademik" target="_blank">Araştırma Görevlileri</a></li>
+                </ul>
+              </li>
+              <li>
+                <a href="https://lisansustu.omu.edu.tr/tr" target="_blank">
+                  <strong>Eğitim</strong>
+                </a>
+                <ul>
+                  <li><a href="https://lisansustu.omu.edu.tr/tr" target="_blank">Lisans</a></li>
+                  <li><a href="https://lisansustu.omu.edu.tr/tr" target="_blank">Yüksek Lisans</a></li>
+                  <li><a href="https://lisansustu.omu.edu.tr/tr" target="_blank">Doktora</a></li>
+                  <li><a href="https://lisansustu.omu.edu.tr/tr" target="_blank">Laboratuvarlar</a></li>
+                </ul>
+              </li>
+              <li>
+                <a href="http://www.omu.edu.tr/tr/hakkimizda/iletisim" target="_blank">
+                  <strong>İletişim</strong>
+                </a>
+              </li>             
+            </ul>
+          </nav>
+        </div>
+</body>
+</html>
